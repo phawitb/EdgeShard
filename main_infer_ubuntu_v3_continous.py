@@ -14,7 +14,7 @@ ln_f.eval().to(dtype=torch.float32)
 lm_head.eval().to(dtype=torch.float32)
 
 HOST = '0.0.0.0'
-PORT = 5005
+PORT = 5002
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
     server_socket.bind((HOST, PORT))

@@ -13,7 +13,7 @@ text = "Tomorrow we will go"
 input_ids = tokenizer.encode(text, return_tensors="pt").to(torch.long)
 
 HOST = '192.168.1.45'
-PORT = 5005
+PORT = 5002
 
 for step in range(10):
     with torch.no_grad():
