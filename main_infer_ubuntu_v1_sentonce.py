@@ -23,11 +23,11 @@ PORT = 5002
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     s.listen(1)
-    print(f"📡 Waiting for connection on port {PORT}...")
+    print(f"Waiting for connection on port {PORT}...")
 
     conn, addr = s.accept()
     with conn:
-        print(f"🔌 Connected by {addr}")
+        print(f"Connected by {addr}")
         data = b''
         while True:
             packet = conn.recv(4096)
@@ -53,4 +53,4 @@ with torch.no_grad():
 
 # Decode token
 generated_text = tokenizer.decode(predicted_id)
-print(f"🧠 Final output: {generated_text}")
+print(f"Final output: {generated_text}")
