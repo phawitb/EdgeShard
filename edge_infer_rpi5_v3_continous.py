@@ -10,6 +10,8 @@ for block in part1_blocks:
     block.eval().to(dtype=torch.float32)
 
 text = "Tomorrow we will go"
+print('Start text :',text)
+
 input_ids = tokenizer.encode(text, return_tensors="pt").to(torch.long)
 
 HOST = '192.168.1.45'
