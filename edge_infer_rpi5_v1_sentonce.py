@@ -24,7 +24,7 @@ with torch.no_grad():
     inputs_embeds = wte(input_ids) + wpe(position_ids)
     hidden_state = drop(inputs_embeds)
 
-    # ❗ Run each layer manually and keep only the first output
+    # Run each layer manually and keep only the first output
     for block in part1_blocks:
         hidden_state = block(hidden_state)[0]
 
@@ -33,7 +33,7 @@ HOST = '192.168.1.45'  # Your Ubuntu IP
 PORT = 5002
 data = hidden_state.numpy().astype("float32").tobytes()
 
-print(f"📤 Sending tensor: {hidden_state.shape}")
+print(f"Sending tensor: {hidden_state.shape}")
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     s.sendall(data)
