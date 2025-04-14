@@ -13,7 +13,7 @@ for block in part1_blocks:
 
 # Tokenize
 tokenizer = AutoTokenizer.from_pretrained("distilgpt2")
-input_text = "Today is a nice"
+input_text = "The cat is sitting"
 print("input_text:",input_text)
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
 input_ids = input_ids.to(dtype=torch.long)
