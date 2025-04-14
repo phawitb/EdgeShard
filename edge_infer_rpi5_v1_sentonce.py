@@ -37,4 +37,4 @@ print(f"📤 Sending tensor: {hidden_state.shape}")
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     s.sendall(data)
-print("✅ Sent successfully")
+print("Sent successfully")
