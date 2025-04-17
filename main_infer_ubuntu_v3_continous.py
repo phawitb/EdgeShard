@@ -32,7 +32,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
                 if not packet:
                     break
                 data += packet
-
             print(f"Total received bytes: {len(data)}")
 
             try:
