@@ -26,6 +26,7 @@ for step in range(10):
             hidden_state = block(hidden_state)[0]
 
     data = hidden_state.numpy().astype("float32").tobytes()
+    
     print(f"\n[{step+1}] Sending hidden_state of shape: {hidden_state.shape} ({len(data)} bytes)")
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -37,4 +38,5 @@ for step in range(10):
         next_token_id = int.from_bytes(token_id_bytes, byteorder='big')
 
     input_ids = torch.cat([input_ids, torch.tensor([[next_token_id]])], dim=1)
+    
     print(f"[{step+1}] Generated so far: {tokenizer.decode(input_ids[0])}")
